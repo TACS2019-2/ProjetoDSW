@@ -1,13 +1,7 @@
 package com.github.gavioesdoforro.universirides.modelo;
 
-import com.github.gavioesdoforro.universirides.modelo.enums.Status;
-import com.github.gavioesdoforro.universirides.modelo.enums.Tipo;
-import com.github.gavioesdoforro.universirides.modelo.enums.Turno;
-
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import com.github.gavioesdoforro.universirides.modelo.enums.*;
+import javax.persistence.*;
 
 @Entity
 public class Carona extends ObjetoPadrao {

@@ -1,22 +1,14 @@
 package com.github.gavioesdoforro.universirides.controller;
 
-import com.github.gavioesdoforro.universirides.modelo.Carona;
-import com.github.gavioesdoforro.universirides.modelo.Usuario;
-import com.github.gavioesdoforro.universirides.modelo.enums.Status;
-import com.github.gavioesdoforro.universirides.modelo.enums.Tipo;
-import com.github.gavioesdoforro.universirides.modelo.enums.Turno;
-import com.github.gavioesdoforro.universirides.repositorio.IRepositorioCarona;
-import com.github.gavioesdoforro.universirides.repositorio.IRepositorioUsuario;
+import com.github.gavioesdoforro.universirides.modelo.*;
+import com.github.gavioesdoforro.universirides.modelo.enums.*;
+import com.github.gavioesdoforro.universirides.repositorio.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 @RequestMapping("/carona")

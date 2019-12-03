@@ -2,11 +2,8 @@ package com.github.gavioesdoforro.universirides.modelo;
 
 import com.github.gavioesdoforro.universirides.modelo.enums.Vinculo;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.*;
+import java.util.*;
 
 @Entity
 public class Usuario extends ObjetoPadrao {

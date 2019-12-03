@@ -1,13 +1,8 @@
 package com.github.gavioesdoforro.universirides.configuracao;
 
-import com.github.gavioesdoforro.universirides.modelo.Carona;
-import com.github.gavioesdoforro.universirides.modelo.Usuario;
-import com.github.gavioesdoforro.universirides.modelo.enums.Status;
-import com.github.gavioesdoforro.universirides.modelo.enums.Tipo;
-import com.github.gavioesdoforro.universirides.modelo.enums.Turno;
-import com.github.gavioesdoforro.universirides.modelo.enums.Vinculo;
-import com.github.gavioesdoforro.universirides.repositorio.IRepositorioCarona;
-import com.github.gavioesdoforro.universirides.repositorio.IRepositorioUsuario;
+import com.github.gavioesdoforro.universirides.modelo.*;
+import com.github.gavioesdoforro.universirides.modelo.enums.*;
+import com.github.gavioesdoforro.universirides.repositorio.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
