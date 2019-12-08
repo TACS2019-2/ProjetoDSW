@@ -78,7 +78,6 @@ public class CaronaController {
                 findByBairroContainingIgnoreCaseOrDescricaoContainingIgnoreCase(keyword, keyword);
         ModelAndView mav = new ModelAndView("resultado_busca");
         mav.addObject("result", result);
-
         return mav;
     }
 }

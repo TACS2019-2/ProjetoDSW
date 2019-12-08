@@ -5,21 +5,19 @@ import javax.persistence.*;
 
 @Entity
 public class Carona extends ObjetoPadrao {
+    private String bairro;
 
     private String descricao;
+
+    private Status status;
 
     private Tipo tipo;
 
     private Turno turno;
 
-    private Status status;
-
-    private String bairro;
-
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuario;
-
 
     public String getDescricao() {
         return descricao;

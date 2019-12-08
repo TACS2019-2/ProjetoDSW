@@ -8,14 +8,13 @@ import java.util.*;
 @Entity
 public class Usuario extends ObjetoPadrao {
 
+    @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
+    private List<Carona> caronasList = new ArrayList<>();
+
     private String nome;
     private String whatsApp;
 
     private Vinculo vinculo;
-
-    @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
-    private List<Carona> caronasList = new ArrayList<>();
-
 
     public String getNome() {
         return nome;

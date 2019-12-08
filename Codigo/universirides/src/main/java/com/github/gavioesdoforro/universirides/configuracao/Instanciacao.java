@@ -18,7 +18,6 @@ public class Instanciacao implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-
         Usuario usuario = new Usuario();
         usuario.setNome("Joao");
         usuario.setWhatsApp("62111111111");
