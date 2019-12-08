@@ -13,7 +13,6 @@ import java.util.*;
 @Controller
 @RequestMapping("/carona")
 public class CaronaController {
-
     @Autowired
     private IRepositorioCarona repositorioCarona;
 

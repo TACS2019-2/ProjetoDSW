@@ -4,7 +4,6 @@ import javax.persistence.*;
 
 @MappedSuperclass
 public abstract class ObjetoPadrao {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

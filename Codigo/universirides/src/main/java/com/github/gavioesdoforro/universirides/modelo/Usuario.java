@@ -7,7 +7,6 @@ import java.util.*;
 
 @Entity
 public class Usuario extends ObjetoPadrao {
-
     @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
     private List<Carona> caronasList = new ArrayList<>();
 

@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class Instanciacao implements CommandLineRunner {
-
     @Autowired
     IRepositorioCarona iRepositorioCarona;
 
