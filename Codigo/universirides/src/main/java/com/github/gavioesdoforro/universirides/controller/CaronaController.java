@@ -3,6 +3,8 @@ package com.github.gavioesdoforro.universirides.controller;
 import com.github.gavioesdoforro.universirides.modelo.*;
 import com.github.gavioesdoforro.universirides.modelo.enums.*;
 import com.github.gavioesdoforro.universirides.repositorio.*;
+import com.github.gavioesdoforro.universirides.servico.ServicoCarona;
+import com.github.gavioesdoforro.universirides.servico.ServicoUsuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -13,15 +15,18 @@ import java.util.*;
 @Controller
 @RequestMapping("/carona")
 public class CaronaController {
-    @Autowired
-    private IRepositorioCarona repositorioCarona;
 
     @Autowired
-    private IRepositorioUsuario repositorioUsuario;
+    private ServicoUsuario servicoUsuario;
+
+    @Autowired
+    private ServicoCarona servicoCarona;
+
+    private Long usuarioPadrao = (long)1;
 
     @RequestMapping("/")
     public ModelAndView home() {
-        List<Carona> listCaronas = repositorioCarona.findAll();
+        List<Carona> listCaronas = servicoCarona.encontrarTodas();
         ModelAndView mav = new ModelAndView("visualizar_caronas");
         mav.addObject("listCaronas", listCaronas);
         return mav;
@@ -38,25 +43,19 @@ public class CaronaController {
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String saveCarona(@ModelAttribute("carona") Carona carona) {
-        Usuario usuario = repositorioUsuario.findById((long) 1).get();
+        //
+        Usuario usuario = servicoUsuario.encontrarPorId(usuarioPadrao);
         carona.setUsuario(usuario);
         carona.setStatus(Status.Aberto);
-        repositorioCarona.save(carona);
+        servicoCarona.inserir(carona);
         return "redirect:/carona/";
     }
 
-    @RequestMapping(value = "/update", method = RequestMethod.PUT)
-    public String updateCarona(@ModelAttribute("carona") Carona carona) {
-        Usuario usuario = repositorioUsuario.findById((long) 1).get();
-        carona.setUsuario(usuario);
-        repositorioCarona.save(carona);
-        return "redirect:/carona/";
-    }
 
     @RequestMapping("/edit")
     public ModelAndView editCaronaForm(@RequestParam long id, Map<String, Object> model) {
         ModelAndView mav = new ModelAndView("edit_carona");
-        Carona carona = repositorioCarona.getOne(id);
+        Carona carona = servicoCarona.encontrarPorId(id);
         mav.addObject("carona", carona);
         model.put("carona", carona);
         model.put("tipos", Tipo.values());
@@ -65,16 +64,23 @@ public class CaronaController {
         return mav;
     }
 
+    @RequestMapping(value = "/update", method = RequestMethod.PUT)
+    public String updateCarona(@ModelAttribute("carona") Carona carona) {
+        Usuario usuario = servicoUsuario.encontrarPorId(usuarioPadrao);
+        carona.setUsuario(usuario);
+        servicoCarona.inserir(carona);
+        return "redirect:/carona/";
+    }
+
     @RequestMapping("/delete")
     public String deleteCaronaForm(@RequestParam long id) {
-        repositorioCarona.deleteById(id);
+        servicoCarona.excluirPorId(id);
         return "redirect:/carona/";
     }
 
     @RequestMapping("/search")
     public ModelAndView search(@RequestParam String keyword) {
-        List<Carona> result = repositorioCarona.
-                findByBairroContainingIgnoreCaseOrDescricaoContainingIgnoreCase(keyword, keyword);
+        List<Carona> result = servicoCarona.buscarPorBairroOuDescricao(keyword);
         ModelAndView mav = new ModelAndView("resultado_busca");
         mav.addObject("result", result);
         return mav;
