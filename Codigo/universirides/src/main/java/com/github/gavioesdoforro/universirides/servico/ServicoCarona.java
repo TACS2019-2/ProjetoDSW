@@ -33,7 +33,8 @@ public class ServicoCarona {
         repositorioCarona.deleteById(id);
     }
 
-    public List<Carona> buscarPorBairroOuDescricao (String parametro) {
-        return repositorioCarona.findByBairroContainingIgnoreCaseOrDescricaoContainingIgnoreCase(parametro, parametro);
+    public List<Carona> buscarPorBairroOuDescricao (String parametroBusca) {
+        return repositorioCarona.
+                findByBairroContainingIgnoreCaseOrDescricaoContainingIgnoreCase(parametroBusca, parametroBusca);
     }
 }

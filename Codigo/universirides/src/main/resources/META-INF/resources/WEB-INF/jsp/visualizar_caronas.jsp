@@ -13,7 +13,7 @@ Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
     <h2>Lista Caronas</h2>
 
     <form method="get" action="search">
-        <input type="text" name="keyword" /> &nbsp;
+        <input type="text" name="parametroBusca" /> &nbsp;
         <input type="submit" value="Buscar" />
     </form>
 

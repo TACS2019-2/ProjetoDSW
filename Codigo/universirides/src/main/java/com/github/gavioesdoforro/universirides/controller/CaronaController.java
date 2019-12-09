@@ -2,7 +2,6 @@ package com.github.gavioesdoforro.universirides.controller;
 
 import com.github.gavioesdoforro.universirides.modelo.*;
 import com.github.gavioesdoforro.universirides.modelo.enums.*;
-import com.github.gavioesdoforro.universirides.repositorio.*;
 import com.github.gavioesdoforro.universirides.servico.ServicoCarona;
 import com.github.gavioesdoforro.universirides.servico.ServicoUsuario;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,13 +21,13 @@ public class CaronaController {
     @Autowired
     private ServicoCarona servicoCarona;
 
-    private Long usuarioPadrao = (long)1;
+    private Long idUsuarioPadrao = (long)1;
 
     @RequestMapping("/")
     public ModelAndView home() {
-        List<Carona> listCaronas = servicoCarona.encontrarTodas();
+        List<Carona> Caronas = servicoCarona.encontrarTodas();
         ModelAndView mav = new ModelAndView("visualizar_caronas");
-        mav.addObject("listCaronas", listCaronas);
+        mav.addObject("listCaronas", Caronas);
         return mav;
     }
 
@@ -44,7 +43,7 @@ public class CaronaController {
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String saveCarona(@ModelAttribute("carona") Carona carona) {
         //
-        Usuario usuario = servicoUsuario.encontrarPorId(usuarioPadrao);
+        Usuario usuario = servicoUsuario.encontrarPorId(idUsuarioPadrao);
         carona.setUsuario(usuario);
         carona.setStatus(Status.Aberto);
         servicoCarona.inserir(carona);
@@ -66,7 +65,7 @@ public class CaronaController {
 
     @RequestMapping(value = "/update", method = RequestMethod.PUT)
     public String updateCarona(@ModelAttribute("carona") Carona carona) {
-        Usuario usuario = servicoUsuario.encontrarPorId(usuarioPadrao);
+        Usuario usuario = servicoUsuario.encontrarPorId(idUsuarioPadrao);
         carona.setUsuario(usuario);
         servicoCarona.inserir(carona);
         return "redirect:/carona/";
@@ -79,8 +78,8 @@ public class CaronaController {
     }
 
     @RequestMapping("/search")
-    public ModelAndView search(@RequestParam String keyword) {
-        List<Carona> result = servicoCarona.buscarPorBairroOuDescricao(keyword);
+    public ModelAndView search(@RequestParam String parametroBusca) {
+        List<Carona> result = servicoCarona.buscarPorBairroOuDescricao(parametroBusca);
         ModelAndView mav = new ModelAndView("resultado_busca");
         mav.addObject("result", result);
         return mav;
