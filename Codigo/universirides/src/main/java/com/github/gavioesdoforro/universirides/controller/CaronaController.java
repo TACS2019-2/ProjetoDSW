@@ -76,10 +76,10 @@ public class CaronaController {
         return "redirect:/carona/";
     }
 
-    @RequestMapping("/search")
+    @RequestMapping("/buscar")
     public ModelAndView buscarCarona(@RequestParam String parametroBusca) {
         List<Carona> resultadoBusca = servicoCarona.buscarPorBairroOuDescricao(parametroBusca);
-        ModelAndView modelAndView = new ModelAndView("resultado_busca");
+        ModelAndView modelAndView = new ModelAndView("buscar_carona");
         modelAndView.addObject("resultadoBusca", resultadoBusca);
         return modelAndView;
     }
