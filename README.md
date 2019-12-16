@@ -9,6 +9,7 @@ O objetivo principal do Universirides é melhorar a mobilidade da comunidade da 
 ## Organização do repositório
 
 O projeto com código-fonte pode ser encontrado em /Codigo/
+
 Já os documentos de visão geral, requisitos e o protótipo testável estão contidos em /Documentos/
 
 ## Stack Adotada
@@ -23,8 +24,11 @@ Neste projeto foi usado as seguintes tecnologias:
 ## Como Executar
 
 Para executar este projeto é necessário ter instalado uma idle, preferencialmente que suporte aplicações SpringBoot como IntelliJ IDEA.
+
 Também é necessário ter o banco de dados MySQL instalado em rodando localmente, crie um banco de dados chamado "universirides" com usuário "root" e senha "12345", caso use outro usuário ou senha modificar as primeiras configurações em "application.properties". 
+
 Após isso apenas rodar o projeto, o esquema do banco de dados vai ser criado no momento de execução do projeto e o banco será populado com 1 usuário e 1 carona. 
+
 Acessar a aplicação em [http://localhost:9090/](http://localhost:9090/)
 
 ## Protótipo
