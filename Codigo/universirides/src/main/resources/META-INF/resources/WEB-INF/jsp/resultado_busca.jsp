@@ -22,7 +22,7 @@
             <th>Status</th>
             <th>Ação</th>
         </tr>
-        <c:forEach items="${result}" var="carona">
+        <c:forEach items="${resultadoBusca}" var="carona">
             <tr>
                 <td>${carona.id}</td>
                 <td>${carona.descricao}</td>

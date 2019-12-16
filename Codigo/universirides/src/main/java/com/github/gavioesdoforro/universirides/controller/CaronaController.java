@@ -79,9 +79,9 @@ public class CaronaController {
 
     @RequestMapping("/search")
     public ModelAndView search(@RequestParam String parametroBusca) {
-        List<Carona> result = servicoCarona.buscarPorBairroOuDescricao(parametroBusca);
+        List<Carona> resultadoBusca = servicoCarona.buscarPorBairroOuDescricao(parametroBusca);
         ModelAndView mav = new ModelAndView("resultado_busca");
-        mav.addObject("result", result);
+        mav.addObject("resultadoBusca", resultadoBusca);
         return mav;
     }
 }
