@@ -11,7 +11,7 @@
 <body>
 <div align="center">
     <h2>Nova Carona</h2>
-    <form:form action="save" method="post" modelAttribute="carona">
+    <form:form action="salvar" method="post" modelAttribute="carona">
         <table border="0" cellpadding="5">
             <tr>
                 <td>Descrição: </td>

@@ -11,7 +11,7 @@ Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <body>
 <div align="center">
     <h2>Editar Carona</h2>
-    <form:form action="update" method="put" modelAttribute="carona">
+    <form:form action="atualizar" method="put" modelAttribute="carona">
         <table border="0" cellpadding="5">
             <tr style="visibility: hidden">
                 <td>ID: </td>

@@ -17,7 +17,7 @@ Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
         <input type="submit" value="Buscar" />
     </form>
 
-    <h3><a href="/carona/new">Nova Carona</a></h3>
+    <h3><a href="/carona/criar">Nova Carona</a></h3>
 
     <table border="1" cellpadding="5">
         <tr>
@@ -40,9 +40,9 @@ Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
                 <td>${carona.usuario.nome}</td>
                 <td>${carona.status}</td>
                 <td>
-                   <a href="/carona/edit?id=${carona.id}">Editar</a>
+                   <a href="/carona/editar?id=${carona.id}">Editar</a>
                     &nbsp;&nbsp;&nbsp;
-                    <a href="/carona/delete?id=${carona.id}">Deletar</a>
+                    <a href="/carona/excluir?id=${carona.id}">Excluir</a>
                 </td>
             </tr>
         </c:forEach>

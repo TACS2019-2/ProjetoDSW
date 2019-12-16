@@ -31,7 +31,7 @@ public class CaronaController {
         return modelAndView;
     }
 
-    @RequestMapping("/new")
+    @RequestMapping("/criar")
     public String criarCarona(Map<String, Object> model) {
         Carona carona = new Carona();
         model.put("carona", carona);
@@ -40,7 +40,7 @@ public class CaronaController {
         return "nova_carona";
     }
 
-    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    @RequestMapping(value = "/salvar", method = RequestMethod.POST)
     public String salvarCarona(@ModelAttribute("carona") Carona carona) {
         Usuario usuario = servicoUsuario.encontrarPorId(idUsuarioPadrao);
         carona.setUsuario(usuario);
@@ -50,7 +50,7 @@ public class CaronaController {
     }
 
 
-    @RequestMapping("/edit")
+    @RequestMapping("/editar")
     public ModelAndView editarCarona(@RequestParam long id, Map<String, Object> model) {
         ModelAndView modelAndView = new ModelAndView("editar_carona");
         Carona carona = servicoCarona.encontrarPorId(id);
@@ -62,7 +62,7 @@ public class CaronaController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/update", method = RequestMethod.PUT)
+    @RequestMapping(value = "/atualizar", method = RequestMethod.PUT)
     public String atualizarCarona(@ModelAttribute("carona") Carona carona) {
         Usuario usuarioPadrao = servicoUsuario.encontrarPorId(idUsuarioPadrao);
         carona.setUsuario(usuarioPadrao);
@@ -70,7 +70,7 @@ public class CaronaController {
         return "redirect:/carona/";
     }
 
-    @RequestMapping("/delete")
+    @RequestMapping("/excluir")
     public String excluirCaronaForm(@RequestParam long id) {
         servicoCarona.excluirPorId(id);
         return "redirect:/carona/";
