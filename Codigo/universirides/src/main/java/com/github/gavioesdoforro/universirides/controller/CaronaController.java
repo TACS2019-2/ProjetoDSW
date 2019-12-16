@@ -24,7 +24,7 @@ public class CaronaController {
     private Long idUsuarioPadrao = (long)1;
 
     @RequestMapping("/")
-    public ModelAndView home() {
+    public ModelAndView visualizarCaronas() {
         List<Carona> Caronas = servicoCarona.encontrarTodas();
         ModelAndView modelAndView = new ModelAndView("visualizar_caronas");
         modelAndView.addObject("Caronas", Caronas);
@@ -32,7 +32,7 @@ public class CaronaController {
     }
 
     @RequestMapping("/new")
-    public String newCaronaForm(Map<String, Object> model) {
+    public String criarCarona(Map<String, Object> model) {
         Carona carona = new Carona();
         model.put("carona", carona);
         model.put("tipos", Tipo.values());
@@ -41,7 +41,7 @@ public class CaronaController {
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String saveCarona(@ModelAttribute("carona") Carona carona) {
+    public String salvarCarona(@ModelAttribute("carona") Carona carona) {
         Usuario usuario = servicoUsuario.encontrarPorId(idUsuarioPadrao);
         carona.setUsuario(usuario);
         carona.setStatus(Status.Aberto);
@@ -51,8 +51,8 @@ public class CaronaController {
 
 
     @RequestMapping("/edit")
-    public ModelAndView editCaronaForm(@RequestParam long id, Map<String, Object> model) {
-        ModelAndView modelAndView = new ModelAndView("edit_carona");
+    public ModelAndView editarCarona(@RequestParam long id, Map<String, Object> model) {
+        ModelAndView modelAndView = new ModelAndView("editar_carona");
         Carona carona = servicoCarona.encontrarPorId(id);
         modelAndView.addObject("carona", carona);
         model.put("carona", carona);
@@ -63,7 +63,7 @@ public class CaronaController {
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.PUT)
-    public String updateCarona(@ModelAttribute("carona") Carona carona) {
+    public String atualizarCarona(@ModelAttribute("carona") Carona carona) {
         Usuario usuarioPadrao = servicoUsuario.encontrarPorId(idUsuarioPadrao);
         carona.setUsuario(usuarioPadrao);
         servicoCarona.inserir(carona);
@@ -71,13 +71,13 @@ public class CaronaController {
     }
 
     @RequestMapping("/delete")
-    public String deleteCaronaForm(@RequestParam long id) {
+    public String excluirCaronaForm(@RequestParam long id) {
         servicoCarona.excluirPorId(id);
         return "redirect:/carona/";
     }
 
     @RequestMapping("/search")
-    public ModelAndView search(@RequestParam String parametroBusca) {
+    public ModelAndView buscarCarona(@RequestParam String parametroBusca) {
         List<Carona> resultadoBusca = servicoCarona.buscarPorBairroOuDescricao(parametroBusca);
         ModelAndView modelAndView = new ModelAndView("resultado_busca");
         modelAndView.addObject("resultadoBusca", resultadoBusca);
