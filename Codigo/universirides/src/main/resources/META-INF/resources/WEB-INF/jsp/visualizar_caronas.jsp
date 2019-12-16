@@ -30,7 +30,7 @@ Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
             <th>Status</th>
             <th>Ação</th>
         </tr>
-        <c:forEach items="${listCaronas}" var="carona">
+        <c:forEach items="${Caronas}" var="carona">
             <tr>
                 <td>${carona.id}</td>
                 <td>${carona.descricao}</td>

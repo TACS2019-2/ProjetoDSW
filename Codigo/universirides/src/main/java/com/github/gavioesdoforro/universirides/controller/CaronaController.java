@@ -27,7 +27,7 @@ public class CaronaController {
     public ModelAndView home() {
         List<Carona> Caronas = servicoCarona.encontrarTodas();
         ModelAndView mav = new ModelAndView("visualizar_caronas");
-        mav.addObject("listCaronas", Caronas);
+        mav.addObject("Caronas", Caronas);
         return mav;
     }
 
@@ -42,7 +42,6 @@ public class CaronaController {
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String saveCarona(@ModelAttribute("carona") Carona carona) {
-        //
         Usuario usuario = servicoUsuario.encontrarPorId(idUsuarioPadrao);
         carona.setUsuario(usuario);
         carona.setStatus(Status.Aberto);
@@ -65,8 +64,8 @@ public class CaronaController {
 
     @RequestMapping(value = "/update", method = RequestMethod.PUT)
     public String updateCarona(@ModelAttribute("carona") Carona carona) {
-        Usuario usuario = servicoUsuario.encontrarPorId(idUsuarioPadrao);
-        carona.setUsuario(usuario);
+        Usuario usuarioPadrao = servicoUsuario.encontrarPorId(idUsuarioPadrao);
+        carona.setUsuario(usuarioPadrao);
         servicoCarona.inserir(carona);
         return "redirect:/carona/";
     }
