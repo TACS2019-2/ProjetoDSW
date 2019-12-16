@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 
+//Classe de configuração para popular o banco com dados iniciais
 @Configuration
 public class Instanciacao implements CommandLineRunner {
     @Autowired
