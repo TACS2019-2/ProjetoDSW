@@ -26,9 +26,9 @@ public class CaronaController {
     @RequestMapping("/")
     public ModelAndView home() {
         List<Carona> Caronas = servicoCarona.encontrarTodas();
-        ModelAndView mav = new ModelAndView("visualizar_caronas");
-        mav.addObject("Caronas", Caronas);
-        return mav;
+        ModelAndView modelAndView = new ModelAndView("visualizar_caronas");
+        modelAndView.addObject("Caronas", Caronas);
+        return modelAndView;
     }
 
     @RequestMapping("/new")
@@ -52,14 +52,14 @@ public class CaronaController {
 
     @RequestMapping("/edit")
     public ModelAndView editCaronaForm(@RequestParam long id, Map<String, Object> model) {
-        ModelAndView mav = new ModelAndView("edit_carona");
+        ModelAndView modelAndView = new ModelAndView("edit_carona");
         Carona carona = servicoCarona.encontrarPorId(id);
-        mav.addObject("carona", carona);
+        modelAndView.addObject("carona", carona);
         model.put("carona", carona);
         model.put("tipos", Tipo.values());
         model.put("turnos", Turno.values());
         model.put("status", Status.values());
-        return mav;
+        return modelAndView;
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.PUT)
@@ -79,8 +79,8 @@ public class CaronaController {
     @RequestMapping("/search")
     public ModelAndView search(@RequestParam String parametroBusca) {
         List<Carona> resultadoBusca = servicoCarona.buscarPorBairroOuDescricao(parametroBusca);
-        ModelAndView mav = new ModelAndView("resultado_busca");
-        mav.addObject("resultadoBusca", resultadoBusca);
-        return mav;
+        ModelAndView modelAndView = new ModelAndView("resultado_busca");
+        modelAndView.addObject("resultadoBusca", resultadoBusca);
+        return modelAndView;
     }
 }
