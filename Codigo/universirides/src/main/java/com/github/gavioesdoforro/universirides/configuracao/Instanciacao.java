@@ -11,10 +11,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class Instanciacao implements CommandLineRunner {
     @Autowired
-    RepositorioCarona iRepositorioCarona;
+    RepositorioCarona RepositorioCarona;
 
     @Autowired
-    RepositorioUsuario iRepositorioUsuario;
+    RepositorioUsuario RepositorioUsuario;
 
     @Override
     public void run(String... args) throws Exception {
@@ -31,7 +31,7 @@ public class Instanciacao implements CommandLineRunner {
         carona.setDescricao("Indo para a UFG as 12:00");
         carona.setStatus(Status.Aberto);
 
-        System.out.println(iRepositorioUsuario.save(usuario));
-        System.out.println(iRepositorioCarona.save(carona));
+        System.out.println(RepositorioUsuario.save(usuario));
+        System.out.println(RepositorioCarona.save(carona));
     }
 }
