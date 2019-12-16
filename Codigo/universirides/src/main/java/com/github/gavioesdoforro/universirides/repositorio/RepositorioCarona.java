@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface IRepositorioCarona extends JpaRepository<Carona, Long> {
+public interface RepositorioCarona extends JpaRepository<Carona, Long> {
     List<Carona> findByBairroContainingIgnoreCaseOrDescricaoContainingIgnoreCase(String texto, String texto1);
 }

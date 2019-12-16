@@ -1,8 +1,8 @@
 package com.github.gavioesdoforro.universirides.servico;
 
 import com.github.gavioesdoforro.universirides.modelo.Carona;
-import com.github.gavioesdoforro.universirides.repositorio.IRepositorioCarona;
-import com.github.gavioesdoforro.universirides.repositorio.IRepositorioUsuario;
+import com.github.gavioesdoforro.universirides.repositorio.RepositorioCarona;
+import com.github.gavioesdoforro.universirides.repositorio.RepositorioUsuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,10 +12,10 @@ import java.util.List;
 public class ServicoCarona {
 
     @Autowired
-    private IRepositorioCarona repositorioCarona;
+    private RepositorioCarona repositorioCarona;
 
     @Autowired
-    private IRepositorioUsuario repositorioUsuario;
+    private RepositorioUsuario repositorioUsuario;
 
     public List<Carona> encontrarTodas () {
         return repositorioCarona.findAll();

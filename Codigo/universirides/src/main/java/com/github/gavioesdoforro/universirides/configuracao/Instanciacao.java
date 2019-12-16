@@ -11,10 +11,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class Instanciacao implements CommandLineRunner {
     @Autowired
-    IRepositorioCarona iRepositorioCarona;
+    RepositorioCarona iRepositorioCarona;
 
     @Autowired
-    IRepositorioUsuario iRepositorioUsuario;
+    RepositorioUsuario iRepositorioUsuario;
 
     @Override
     public void run(String... args) throws Exception {
