@@ -2,8 +2,7 @@ package com.github.gavioesdoforro.universirides.controller;
 
 import com.github.gavioesdoforro.universirides.modelo.*;
 import com.github.gavioesdoforro.universirides.modelo.enums.*;
-import com.github.gavioesdoforro.universirides.servico.ServicoCarona;
-import com.github.gavioesdoforro.universirides.servico.ServicoUsuario;
+import com.github.gavioesdoforro.universirides.servico.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;

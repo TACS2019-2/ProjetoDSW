@@ -33,6 +33,7 @@ public class ServicoCarona {
         repositorioCarona.deleteById(id);
     }
 
+    //Usando a criação de consultas por nome do método, recurso do Sping
     public List<Carona> buscarPorBairroOuDescricao (String parametroBusca) {
         return repositorioCarona.
                 findByBairroContainingIgnoreCaseOrDescricaoContainingIgnoreCase(parametroBusca, parametroBusca);
